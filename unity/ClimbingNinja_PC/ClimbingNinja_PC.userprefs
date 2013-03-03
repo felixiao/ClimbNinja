@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ServerClient.cs">
+    <Files>
+      <File FileName="Assets\Scripts\ServerClient.cs" Line="198" Column="13" />
+      <File FileName="Assets\Scripts\Server.cs" Line="34" Column="64" />
+      <File FileName="Assets\Scripts\GameState.cs" Line="34" Column="21" />
+      <File FileName="Assets\Scripts\ColorPanel.cs" Line="34" Column="26" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
