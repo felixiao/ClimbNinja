@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 public class MenuButton : MonoBehaviour {
-	string ip="";
+
 	void OnGUI(){
 			if (GUI.Button(new Rect(10, 100, 100, 50), "Single Player"))
 	        	Application.LoadLevel("SingleNormal");
