@@ -37,15 +37,14 @@ public class Rocks{
 			r.Play();
 		}
 	}
+	//fix bug here: sometime did not match
 	public int CheckMatch(int[] order,int cur){
 		int matched=-1;
 		for(int i=rockGroup.Count-1;i>0;i--){
 			bool ma=true;
-			for(int j=0;j<4;j++){
-				if(order[j]!=rockGroup[i].colorOrder[j]){
-					ma=false;
-					break;
-				}
+			if(!rockGroup[i].CheckMatch(order)){
+				ma=false;
+				break;
 			}
 			float iy=rockGroup[i].Position.y,cury=rockGroup[cur].Position.y;
 			if(ma&&i!=cur&&iy>cury){
@@ -149,5 +148,12 @@ public class Rock {
 		rocks[2].transform.position=pos+new Vector3(-offset,-offset,0);
 		rocks[3].transform.position=pos+new Vector3(offset,-offset,0);
 		
+	}
+	public bool CheckMatch(int[] order){
+		for(int i=0;i<4;i++){
+			if(order[i]!=colorOrder[i])
+				return false;
+		}
+		return true;
 	}
 }

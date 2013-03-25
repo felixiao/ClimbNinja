@@ -9,7 +9,8 @@ public class MainMenuUI : MonoBehaviour {
 	public GUIText score;
 	public GUIText endlessMode;
 	public GUIText normalMode;
-	public GUIText back;
+	public GUITexture back;
+	public GUIText trainingMode;
 	Player _player;
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,7 @@ public class MainMenuUI : MonoBehaviour {
 		endlessMode.enabled=false;
 		normalMode.enabled=false;
 		back.enabled=false;
-		
+		trainingMode.enabled=false;
 		_player=new Player(player,player.transform.position);
 		if(!PlayerPrefs.HasKey("Score")){
 			PlayerPrefs.SetInt("Score",0);
@@ -59,6 +60,10 @@ public class MainMenuUI : MonoBehaviour {
 					if(normalMode.enabled&&normalMode.HitTest(Input.touches[0].position)){
 						Application.LoadLevel("SingleNormal");
 					}
+					// press training
+					if(trainingMode.enabled&&trainingMode.HitTest(Input.mousePosition)){
+						Application.LoadLevel("SingleTraining");
+					}
 				}
 			}
 		}
@@ -88,6 +93,10 @@ public class MainMenuUI : MonoBehaviour {
 				if(normalMode.enabled&&normalMode.HitTest(Input.mousePosition)){
 					Application.LoadLevel("SingleNormal");
 				}
+				// press training
+				if(trainingMode.enabled&&trainingMode.HitTest(Input.mousePosition)){
+					Application.LoadLevel("SingleTraining");
+				}
 			}
 		}
 		# endregion
@@ -105,9 +114,10 @@ public class MainMenuUI : MonoBehaviour {
 		start.enabled=true;
 		quit.enabled=true;
 		help.enabled=true;
+		trainingMode.enabled=false;
 	}
 	void OnStart(){
-		
+		trainingMode.enabled=true;
 		quit.enabled=false;
 		help.enabled=false;
 		endlessMode.enabled=true;
@@ -120,7 +130,7 @@ public class MainMenuUI : MonoBehaviour {
 	}
 	
 	void OnHelp(){
-		Application.LoadLevel("Help");
+		Application.LoadLevel("Info");
 	}
 	void OnSave(){
 	}

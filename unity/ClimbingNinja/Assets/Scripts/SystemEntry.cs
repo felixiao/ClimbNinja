@@ -55,7 +55,10 @@ public class SystemEntry : MonoBehaviour {
 		_rocks=new Rocks(texsRock,rockPre);
 		_player=new Player(player,_rocks.rockGroup[index].Position);
 		_panel=new ControlPanel(texsPanel,panelPre,panelHighlight,panelPos,panelOffset);
-		//uiHandler=(HandleUI)this.GetComponent("HandleUI");
+		if(autoScoll)
+			uiScore.text=_player.Score.ToString();
+		else
+			uiScore.text=(estimatedScore-_player.Score).ToString();
 	}
 	void Init(){
 		passedTime=0;
@@ -63,7 +66,7 @@ public class SystemEntry : MonoBehaviour {
 		case "SingleNormal":
 			autoScoll=false;
 			index=1;
-			estimatedTime=10f;
+			estimatedTime=90f;
 			estimatedScore=2000f;
 			timeLabel="Time Left: "+estimatedTime;
 			break;
@@ -77,7 +80,7 @@ public class SystemEntry : MonoBehaviour {
 		default:
 			autoScoll=false;
 			index=1;
-			estimatedTime=10f;
+			estimatedTime=90f;
 			estimatedScore=2000f;
 			break;
 		}
@@ -303,7 +306,10 @@ public class SystemEntry : MonoBehaviour {
 		if(ma!=-1){
 			index=ma;
 			_player.PlayerJump(_rocks.rockGroup[index].Position);
-			uiScore.text=_player.Score.ToString();
+			if(autoScoll)
+				uiScore.text=_player.Score.ToString();
+			else
+				uiScore.text=(estimatedScore-_player.Score).ToString();
 		}
 		
 	}
