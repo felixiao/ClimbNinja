@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using System.Threading;
 /* UI-
  * 	-resolution
- * Bug-
- * 	-color matching
- * 
- * 
+ * MultiColor
+ * Sound
+ * Items
+ * Stage selection(difficulty)
+ * Network
+ * Save/Load data
+ * settings(sound volume/player name)
+ * performance enhance
  */
 public class SystemEntry : MonoBehaviour {
 	public List<Rock> rockGroup=new List<Rock>();

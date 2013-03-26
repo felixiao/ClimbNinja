@@ -49,8 +49,8 @@
      <Compile Include="Assets\Scripts\HandleUI.cs" />
      <Compile Include="Assets\Scripts\HelpInfo.cs" />
      <Compile Include="Assets\Scripts\MainMenuUI.cs" />
-     <Compile Include="Assets\Scripts\MenuButton.cs" />
      <Compile Include="Assets\Scripts\NetworkConn.cs" />
+     <Compile Include="Assets\Scripts\NetworkEntry.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Rocks.cs" />
      <Compile Include="Assets\Scripts\SystemEntry.cs" />

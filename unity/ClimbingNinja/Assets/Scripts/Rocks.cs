@@ -4,16 +4,18 @@ using System.Collections.Generic;
 
 public class Rocks{
 	public List<Rock> rockGroup;
-	
+	float gap=1.2f;
+	float gapoffset=0.3f;
+	int rockCount=6;
 	public Rocks(List<Texture> texs,GameObject colorCub){
 		rockGroup=new List<Rock>();
-		for(int i=0;i<5;i++){
+		for(int i=rockCount-1;i>=0;i--){
 			rockGroup.Add(generateRocks(i,texs,colorCub));
 		}
 	}
 	public void Reset(float speed){
-		for(int i=0;i<5;i++){
-			float y=i*1.5f+Random.value*0.5f;
+		for(int i=rockCount-1;i>=0;i--){
+			float y=i*gap+Random.value*gapoffset;
 			rockGroup[i].pos=new Vector3(Random.value*2.7f-1.35f,y,-1f);
 			rockGroup[i].Init();
 			rockGroup[i].Play();
@@ -40,11 +42,10 @@ public class Rocks{
 	//fix bug here: sometime did not match
 	public int CheckMatch(int[] order,int cur){
 		int matched=-1;
-		for(int i=rockGroup.Count-1;i>0;i--){
+		for(int i=rockCount-1;i>=0;i--){
 			bool ma=true;
 			if(!rockGroup[i].CheckMatch(order)){
 				ma=false;
-				break;
 			}
 			float iy=rockGroup[i].Position.y,cury=rockGroup[cur].Position.y;
 			if(ma&&i!=cur&&iy>cury){
@@ -60,13 +61,14 @@ public class Rocks{
 	}
 	Rock generateRocks(int height,List<Texture> texs,GameObject colorCube){
 		Rock r=new Rock(texs,colorCube);
-		float y=height*1.5f+Random.value*0.5f;
+		float y=height*gap+Random.value*gapoffset;
 		r.Instant(new Vector3(Random.value*2.7f-1.35f,y,-1f));
 		return r;
 	}
 }
 // a group of 4 rocks
 public class Rock {
+	float gapoffset=0.3f;
 	GameObject _GOcolor;
 	List<Texture> texs;//R,G,B,Y
 	public Vector3 Position{get{return pos;}}
@@ -137,7 +139,7 @@ public class Rock {
 		if(pos.y<8f){
 			pos-=Vector3.up*speed;
 			if(pos.y<=-1.5f){
-				float y=5.5f+Random.value*0.5f;
+				float y=5.5f+Random.value*gapoffset;
 				pos=new Vector3(Random.value*2.7f-1.35f,y,-1f);
 				Init();
 			}

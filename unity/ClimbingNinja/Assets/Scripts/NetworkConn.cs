@@ -1,8 +1,14 @@
 using UnityEngine;
 using System.Collections;
-
-public class NetworkConn : MonoBehaviour {
-
+/* connect to server
+ * connect to other player(client)
+ * connect to website
+ * send message
+ * receieve message
+ * 
+ */ 
+public class NetworkConn {
+	
 	// Use this for initialization
 	void Start () {
 	
